@@ -80,16 +80,14 @@ Markup language sirf content ko describe karti hai.
 Jab browser HTML file open karta hai:
 
 - HTML ko line by line read karta hai.
-- Tags ko parse karta hai.
+- Tags ko Analyze karke process  karta hai.
 - DOM (Document Object Model) banata hai.
 - CSS apply karta hai.
 - JavaScript execute karta hai.
 - User ko webpage dikhata hai.
 
 **Practical Example**
-<code>
-    <pre>
-        &lt;!DOCTYPE html&gt;
+<code><pre>&lt;!DOCTYPE html&gt;
         &lt;html&gt;
         &lt;head&gt;
         &lt;title&gt;My Website&lt;/title&gt;
@@ -98,17 +96,10 @@ Jab browser HTML file open karta hai:
         &lt;h1&gt;Welcome&lt;/h1&gt;
         &lt;p&gt;This is my first HTML page.&lt;/p&gt;
         &lt;/body&gt;
-        &lt;/html&gt;
-    </pre>
-</code>
+        &lt;/html&gt;</pre></code>
 **Browser Output**
-<code>
-    <pre>
-    Welcome
-
-This is my first HTML page.
-    </pre>
-</code>
+<code><pre> Welcome
+    This is my first HTML page.</pre></code>
 **Interview Questions**
 
 **Q1. HTML ka full form kya hai?**
