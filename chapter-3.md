@@ -1,4 +1,4 @@
-**Chapter 3 – HTML Tags, Elements, Attributes aur Empty Tags**
+**📘 Chapter 3 – HTML Tags, Elements, Attributes aur Empty Tags**
 
 **Q1. HTML Tag Kya Hota Hai?**
 - Tag browser ko batata hai ki content kis type ka hai.

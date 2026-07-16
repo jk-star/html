@@ -1,4 +1,4 @@
-**Chapter 2: HTML Document Structure**
+**📘 Chapter 2: HTML Document Structure**
 
 **Question 1: HTML Document Structure Kya Hota Hai?**
 - Jab bhi hum HTML file banate hain, uska ek standard structure hota hai.
