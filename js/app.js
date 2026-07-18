@@ -13,6 +13,8 @@ const searchInput = document.getElementById("searchInput");
 const progressBar = document.getElementById("readingProgress");
 const contentBox = document.querySelector(".content-box");
 
+const themeBtn = document.getElementById("themeBtn");
+
 console.log(progressBar);
 
 let currentChapterIndex = 0;
@@ -130,6 +132,16 @@ async function loadChapter() {
 }
 
 
+// =============================
+// URL Update + Refresh Same Chapter
+// Chapter 5 open karti ho
+// Browser Refresh karti ho
+
+// To wapas Chapter 1 open ho jayega.
+
+// Professional documentation me aisa nahi hota.
+// =============================
+
 function updateURL() {
     const chapter = chapters[currentChapterIndex];
 
@@ -138,6 +150,24 @@ function updateURL() {
     url.searchParams.set("chapter", chapter.id);
 
     window.history.replaceState({}, "", url);
+}
+
+
+// =============================
+// Dark / Light Mode
+// =============================
+function loadTheme() {
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add("dark-mode");
+
+        themeBtn.innerHTML = "☀️ Light Mode";
+
+    }
+
 }
 
 // =============================
@@ -287,6 +317,26 @@ contentBox.addEventListener("scroll", () => {
         (scrollTop / scrollHeight) * 100;
 
     progressBar.style.width = progress + "%";
+
+});
+
+themeBtn.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+
+        localStorage.setItem("theme", "dark");
+
+        themeBtn.innerHTML = "☀️ Light Mode";
+
+    } else {
+
+        localStorage.setItem("theme", "light");
+
+        themeBtn.innerHTML = "🌙 Dark Mode";
+
+    }
 
 });
 
