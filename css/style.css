@@ -123,3 +123,11 @@ body {
 #content code {
     font-family: Consolas, monospace;
 }
+
+.search-box{
+    margin-bottom:20px;
+}
+
+.search-box input{
+    border-radius:8px;
+}

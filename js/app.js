@@ -8,6 +8,8 @@ const content = document.getElementById("content");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
+const searchInput = document.getElementById("searchInput");
+
 let currentChapterIndex = 0;
 
 // =============================
@@ -209,5 +211,29 @@ function init() {
     loadChapter();
 
 }
+
+searchInput.addEventListener("keyup", () => {
+
+    const keyword = searchInput.value.toLowerCase();
+
+    const links = document.querySelectorAll("#chapter-list a");
+
+    links.forEach((link) => {
+
+        if (link.textContent.toLowerCase().includes(keyword)) {
+
+            link.parentElement.style.display = "";
+
+        }
+
+        else {
+
+            link.parentElement.style.display = "none";
+
+        }
+
+    });
+
+});
 
 init();
