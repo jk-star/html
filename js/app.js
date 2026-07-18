@@ -17,6 +17,12 @@ const themeBtn = document.getElementById("themeBtn");
 
 const tocList = document.getElementById("tocList");
 
+const menuToggle = document.getElementById("menuToggle");
+
+const sidebar = document.querySelector(".sidebar");
+
+const menuIcon = document.querySelector(".menu-icon");
+
 // console.log(progressBar);
 
 let currentChapterIndex = 0;
@@ -386,5 +392,36 @@ themeBtn.addEventListener("click", () => {
     }
 
 });
+
+
+
+menuToggle.addEventListener("click",()=>{
+
+    sidebar.classList.toggle("show");
+
+    menuToggle.classList.toggle("active");
+
+    if(sidebar.classList.contains("show")){
+
+        menuIcon.innerHTML="&#10005;";   // ✕
+
+    }else{
+
+        menuIcon.innerHTML="&#9776;";    // ☰
+
+    }
+
+});
+
+if(window.innerWidth<992){
+
+    sidebar.classList.remove("show");
+
+    menuToggle.classList.remove("active");
+
+    menuIcon.innerHTML="&#9776;";
+
+}
+
 
 init();

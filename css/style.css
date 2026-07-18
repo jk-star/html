@@ -244,6 +244,7 @@ body.dark-mode .search-box input::placeholder{
 
 .content-box{
     flex:1;
+    margin-top: 30px;
 }
 
 .toc{
@@ -290,4 +291,56 @@ body.dark-mode .toc{
 
 body.dark-mode .toc a {
     color:#f1f1f1;
+}
+
+.menu-btn{
+    display:none;
+}
+
+@media (max-width: 992px){
+
+    .menu-btn{
+        display:block;
+        position:fixed;
+        top:15px;
+        left:15px;
+        z-index:99999;
+        border:none;
+        color:#fff;
+        background-color: #0d6efd;
+        padding:8px 15px;
+        border-radius:6px;
+        font-size:22px;
+        cursor:pointer;
+    }
+
+    .sidebar{
+        position:fixed;
+        top:0;
+        left:-320px;
+        width:300px;
+        height:100vh;
+        z-index:9999;
+        transition:.3s;
+        overflow-y:auto;
+    }
+
+    .sidebar.show{
+        left:0;
+    }
+
+    .content-area{
+        margin-left:0;
+    }
+
+    .toc{
+        display:none;
+    }
+}
+
+.menu-btn.active {
+    background-color: transparent;
+    color: #fff;
+    display: flex;
+    align-items: center;
 }
