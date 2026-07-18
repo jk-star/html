@@ -11,6 +11,10 @@ body {
     overflow: hidden;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 /* Layout */
 .container-fluid,
 .row {
@@ -231,4 +235,59 @@ body.dark-mode pre{
 
 body.dark-mode .search-box input::placeholder{
     color:#fff;
+}
+
+.content-area{
+    display:flex;
+    gap:30px;
+}
+
+.content-box{
+    flex:1;
+}
+
+.toc{
+    width:300px;
+    position:sticky;
+    top:20px;
+    align-self:flex-start;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:8px;
+    padding:20px;
+    height:100vh;
+    overflow:auto;
+}
+
+.toc h5{
+    margin-bottom:15px;
+}
+
+.toc ul{
+    list-style:none;
+    padding:0;
+}
+
+.toc li{
+    margin-bottom:10px;
+}
+
+.toc a{
+    text-decoration:none;
+    color:#444;
+    font-size:14px;
+}
+
+.toc a:hover{
+    color:#0d6efd;
+}
+
+body.dark-mode .toc{
+    background:#1f1f1f;
+    color:#f1f1f1;
+    border:1px solid #1f1f1f;
+}
+
+body.dark-mode .toc a {
+    color:#f1f1f1;
 }

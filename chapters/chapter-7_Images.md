@@ -1,6 +1,6 @@
-**📘 Chapter 7 – HTML Images (`<img>` Tag)**
+# 📘 Chapter 7 – HTML Images ( img Tag )
 
-**Q1. Image Tag Kya Hota Hai?**
+## Q1. Image Tag Kya Hota Hai?
 - `<img>` tag webpage par image display karne ke liye use hota hai.
 
 - Ye ek Void (Empty) Element hai.
@@ -11,7 +11,7 @@
 
 `<img src="image.jpg" alt="Car Image">`
 
-**Q2. src Attribute Kya Hai?**
+## Q2. src Attribute Kya Hai?
 
 - src ka full form hai: **Source**
 
@@ -21,7 +21,7 @@
 
 `<img src="car.jpg" alt="Car">`
 
-**Q3. alt Attribute Kya Hai?**
+## Q3. alt Attribute Kya Hai?
 
 - alt ka full form hai: **Alternative Text**
 
@@ -49,21 +49,21 @@
 
 - Isliye SEO ke liye alt important hai.
 
-**Interview Question**
+## Interview Question
 
-**Q: Kya alt attribute mandatory hai?**
+## Q4. Kya alt attribute mandatory hai?
 
 - Technically browser bina alt ke bhi image dikha dega.
 
 - Lekin best practice aur accessibility ke hisaab se alt dena chahiye.
 
-**Q4. Width aur Height**
+## $Q5. Width aur Height
 
 - Image ka size set karne ke liye.
 
 ```<img src="car.jpg" width="300" height="200" alt="Car">```
 
-**Q5. Relative Image Path**
+## Q6. Relative Image Path
 
 - Agar image project ke andar hai.
 
@@ -71,13 +71,13 @@
 
 `<img src="images/car.jpg" alt="Car">`
 
-**Q6. Absolute Image Path**
+## Q7. Absolute Image Path**
 
 - Internet se image load karna.
 
 `<img src="https://example.com/car.jpg" alt="Car">`
 
-Interview Difference
+## Interview Difference
 
 | Relative Path         | Absolute Path          |
 | --------------------- | ---------------------- |
@@ -85,7 +85,7 @@ Interview Difference
 | Fast                  | Network par depend     |
 | Commonly use hota hai | External image ke liye |
 
-**Q7. Image Formats**
+## Q8. Image Formats**
 
 **JPEG (.jpg)**
 
@@ -115,17 +115,17 @@ Interview Difference
 
     ✅ Performance ke liye recommended.
 
-**Interview Question**
+## Interview Question
 
-**Q.1 Logo ke liye kaunsa format best hai?**
+## Q.1 Logo ke liye kaunsa format best hai?
 
 - SVG (agar available ho), warna PNG.
 
-**Q.2 Photo ke liye?**
+## Q.2 Photo ke liye?
 
 - JPEG ya WebP.
 
-**Q8. Lazy Loading**
+## Q9. Lazy Loading
 
 - Modern websites me use hota hai.
 
@@ -140,7 +140,7 @@ Interview Difference
 - Kam internet usage
 - Better performance
 
-Q9. `<figure>` aur `<figcaption>`
+## Q10. figure aur figcaption
 - Image ke saath caption dikhane ke liye.
 
 <code><pre>

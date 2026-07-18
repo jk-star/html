@@ -1,6 +1,6 @@
-**📘 Chapter 5 – HTML Lists**
+# 📘 Chapter 5 – HTML Lists
 
-**HTML List Kya Hoti Hai?**
+## HTML List Kya Hoti Hai?
 
 - Jab hume multiple related items ko ek organized format me dikhana hota hai, tab 
 List use karte hain.
@@ -19,7 +19,7 @@ List use karte hain.
 - Ordered List (``<ol>``)
 - Description List (``<dl>``)
 
-**1. Unordered List (``<ul>``)**
+## 1. Unordered List ( ul )
 
 - Jab items ka order important nahi hota, tab ``<ul>`` use karte hain.
 
@@ -34,7 +34,7 @@ List use karte hain.
 &lt;/ul&gt;
 </pre></code>
 
-**2. Ordered List (``<ol>``)**
+## 2. Ordered List ( ol )
 
 - Jab items ka sequence important ho, tab ``<ol>`` use karte hain.
 
@@ -73,7 +73,7 @@ List use karte hain.
 &lt;/ol&gt;
 </pre></code>
 
-**3. Description List (``<dl>``)**
+## 3. Description List ( dl )
 
 - Jab kisi term aur uski description dikhani ho.
 

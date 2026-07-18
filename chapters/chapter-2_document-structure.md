@@ -1,6 +1,6 @@
-**📘 Chapter 2: HTML Document Structure**
+# 📘 Chapter 2: HTML Document Structure
 
-**Question 1: HTML Document Structure Kya Hota Hai?**
+## Q1. HTML Document Structure Kya Hota Hai?
 - Jab bhi hum HTML file banate hain, uska ek standard structure hota hai.
 <code><pre>&lt;!DOCTYPE html&gt;
         &lt;html&gt;
@@ -15,7 +15,7 @@
 
 - Har HTML page lagbhag isi structure ko follow karta hai.
 
-**1. &lt;!DOCTYPE html&gt; Kya Hai?**
+### 1. !DOCTYPE html Kya Hai?
 - &lt;!DOCTYPE html&gt; browser ko batata hai ki ye document HTML5 me likha gaya hai.
 - Ye browser ko Standards Mode me page render karne ke liye instruct karta hai.
 
@@ -34,7 +34,7 @@
 <!DOCTYPE html>
 ```
 
-**2. ```<html>``` Tag**
+### 2. html Tag
 - Ye pure HTML document ka root element hota hai.
 
 - Saare HTML elements isi ke andar hote hain.
@@ -53,27 +53,25 @@
 
 </html>
 ```
-**Interview Question**
+## Interview Question
 
-**Q.1: HTML page ka root element kaunsa hota hai?**
+## Q.1 HTML page ka root element kaunsa hota hai?
 
 ```<html>```
 
-**3. ```<head>``` Tag**
+## Q.2 head Tag
 - Ye webpage ki background information rakhta hai.
 
 - Ye information browser aur search engine ke liye hoti hai.
 
 - User ko directly screen par nahi dikhti.
 
-**Interview Question**
-
-**Q: Kya ```<head>``` ka content webpage par visible hota hai?**
+## Q.3 Kya head ka content webpage par visible hota hai?
 
 - Nahi. Sirf ```<title>``` browser tab me dikhta hai.
 - Baaki tags directly page par visible nahi hote.
 
-**4. ```<title>``` Tag**
+## Q.4 title Tag
 - Browser tab me jo naam dikhta hai, wo ```<title>``` se aata hai.
 
 **Example:**
@@ -86,7 +84,7 @@
 
 - Google search results me bhi title dikhai deta hai.
 
-**5. ```<meta>``` Tag**
+## Q.5 meta Tag
 
 - Meta tag webpage ke baare me extra information deta hai.
 
@@ -108,12 +106,12 @@
 ```<meta name="description" content="Best Online Shopping Website">```
 - SEO me help karta hai.
 
-**6. ```<link>``` Tag**
+## Q.6 link Tag
 - External CSS file ko connect karne ke liye.
 
 ```<link rel="stylesheet" href="style.css">```
 
-**7. ```<style>``` Tag**
+## Q.7 style Tag
 - Internal CSS likhne ke liye.
 
 <code><pre>
@@ -122,7 +120,7 @@ h1 { color:red; }
 &lt;/style&gt;
 </pre></code>
 
-**8. ```<script>``` Tag**
+## Q.8  script Tag
 - JavaScript add karne ke liye.
 
 <code><pre>
@@ -135,7 +133,7 @@ alert("Hello");
 
 <code><pre>&lt;script src="app.js">&lt;/script&gt;</pre></code>
 
-**9. ```<body>``` Tag**
+## Q.9 body Tag
 - Jo bhi user browser me dekhta hai, wo sab ```<body>``` ke andar hota hai.
 
 **Example:**

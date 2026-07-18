@@ -1,6 +1,6 @@
-**📘 Chapter 6 – HTML Links (Anchor Tag)**
+# 📘 Chapter 6 – HTML Links (Anchor Tag)**
 
-**Q1. Anchor Tag (```<a>```) Kya Hota Hai?**
+## Q1. Anchor Tag ( a ) Kya Hota Hai?
 
 - Anchor (``<a>``) tag ka use ek page se dusre page, ek website se dusri website, ya 
 - same page ke kisi section par navigate karne ke liye hota hai.
@@ -10,7 +10,7 @@
 
 ``<a href="https://www.google.com">Google</a>``
 
-**Q2. href Kya Hai?**
+## Q2. href Kya Hai?
 
 - **href ka full form hai:** Hypertext Reference
 
@@ -24,7 +24,7 @@
 - href = Attribute
 - about.html = Destination
 
-**Q3. Absolute URL vs Relative URL**
+## Q3. Absolute URL vs Relative URL
 
 **1. Absolute URL**
 
@@ -46,7 +46,7 @@
 
 ``<a href="about.html">About</a>``
 
-**Interview Difference**
+## Interview Difference
 
 | Absolute URL     | Relative URL             |
 | ---------------- | ------------------------ |
@@ -54,7 +54,7 @@
 | External website | Internal page            |
 | `https://...`    | `about.html`             |
 
-**Q4. target Attribute**
+## Q4. target Attribute
 
 - Ye decide karta hai link kahan open hoga.
 - **_self** Default value. Same tab me open hota hai.
@@ -69,27 +69,27 @@ About
 Google
 ``</a>``
 
-**Interview Question**
+## Interview Question
 
 - Difference between _self and _blank?
     - _self → Same tab
     - _blank → New tab
 
-**Q5. Email Link (mailto:)**
+## Q5. Email Link (mailto:)
 - User ke email app ko open karta hai.
 
 ``<a href="mailto:test@gmail.com">``
 Send Email
 ``</a>``
 
-**Q6. Phone Link (tel:)**
+## Q6. Phone Link (tel:)
 - Mobile me click karte hi dialer open ho jata hai.
 
 ``<a href="tel:+919876543210">``
 Call Now
 ``</a>``
 
-**Q7. Download Attribute**
+## Q7. Download Attribute
 - File download karne ke liye.
 - Click karte hi file download hogi.
 
@@ -97,7 +97,7 @@ Call Now
 Download Resume
 `</a>`
 
-**Q8. Bookmark Link (Same Page Navigation)**
+## Q8. Bookmark Link (Same Page Navigation)
 
 - Ek hi page ke kisi section par jump karna.
 
@@ -111,7 +111,7 @@ Download Resume
 - id="contact" → Destination
 - href="#contact" → Link
 
-**Q9. Image Ko Link Banana**
+## Q9. Image Ko Link Banana
 
 - Image par click karne se page open ho.
 
@@ -121,7 +121,7 @@ Download Resume
 &lt;/a&gt; 
 </pre></code>
 
-**Q10. Empty Link**
+## Q10. Empty Link
 
 - Kabhi-kabhi temporary link banate hain.
 

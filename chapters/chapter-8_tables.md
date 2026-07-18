@@ -1,6 +1,6 @@
-**📘 Chapter 8 – HTML Tables (Part 1)**
+# 📘 Chapter 8 – HTML Tables 
 
-**Q.1 HTML Table Kya Hoti Hai?**
+## Q.1 HTML Table Kya Hoti Hai?
 - HTML Table ka use data ko rows aur columns ke format me display karne ke liye hota hai.
 
 **Table Banane Ke Main Tags**
@@ -17,7 +17,7 @@
 | `<tfoot>`   | Footer section         |
 
 
-**Q2. ``<caption>`` Kya Hai?**
+## Q2. caption Kya Hai?
 - Table ka title.
 
 **Example**
@@ -27,7 +27,7 @@
 &lt;/table&gt;
 </pre></code>
 
-**Q3. ``<thead>`` Kya Hai?**
+## Q3. thead Kya Hai?
 - `<thead>` ka matlab hai: Table Header Section
 
 - Iske andar table ki heading wali rows aati hain.
@@ -43,7 +43,7 @@
 &lt;/thead&gt;
 </pre></code>
 
-**Q4. ``<tbody>`` Kya Hai?**
+## Q4. tbody Kya Hai?
 - `<tbody>` me actual data aata hai.
 
 **Example**
@@ -57,7 +57,7 @@
 &lt;/tbody&gt;
 </pre></code>
 
-**Q3. ``<tfoot>`` Kya Hai?**
+## Q5. tfoot Kya Hai?
 
 - Table ke footer ke liye.
 
@@ -76,9 +76,9 @@
 &lt;/tfoot&gt;
 </pre></code>
 
-**Interview Question**
+## Interview Question
 
-**Agar `<thead>` aur `<tbody>` na use kare to?**
+## Agar thead aur tbody na use kare to?
 
 - Table phir bhi chalegi.
 - Ye optional hain.
@@ -89,7 +89,7 @@
     - CSS apply karna easy hota hai.
     - Accessibility improve hoti hai.
 
-**Q4. colspan**
+## Q6. colspan
 - Ek cell ko multiple columns me merge karna.
 
 **Example**
@@ -118,7 +118,7 @@
 </tr>
 </table>
 
-**Q5. rowspan**
+## Q7. rowspan
 - Ek cell ko multiple rows me merge karna.
 
 **Example**
@@ -145,7 +145,7 @@
 </tr>
 </table>
 
-**Difference**
+## Difference
 | Colspan      | Rowspan   |
 | ------------ | --------- |
 | Column merge | Row merge |

@@ -1,6 +1,6 @@
-**📘 Chapter 4 – Block Level vs Inline Elements**
+# 📘 Chapter 4 – Block Level vs Inline Elements
 
-**Q1. Block Level Element Kya Hota Hai?**
+## Q1. Block Level Element Kya Hota Hai?
 - Block-level element hamesha new line se start hota hai aur by default parent ki poori available width occupy karta hai.
 - Dhyan rahe: Hum aam taur par "full width" bol dete hain, lekin technically ye parent container ki available width hoti hai.
 
@@ -37,7 +37,7 @@
 
 ✅ Margin aur Padding sab directions me achhe se work karte hain.
 
-**Q2. Inline Element Kya Hota Hai?**
+## Q2. Inline Element Kya Hota Hai?
 - Inline element new line se start nahi hota.
 
 - Ye sirf content jitni width leta hai.
@@ -70,7 +70,7 @@
 
 ❌ width aur height normally apply nahi hote.
 
-**Q3. display:inline-block Kya Hota Hai?**
+## Q3. display:inline-block Kya Hota Hai?
 
 - Ye inline aur block dono ke features deta hai.
 
@@ -91,9 +91,9 @@
 }
 </pre></code>
 
-**Interview Question**
+## Interview Question
 
-**Difference Between**
+## Difference Between Block, Inline, Inline-block 
 
 | Feature   | Block                     | Inline        | Inline-block               |
 | --------- | ------------------------- | ------------- | -------------------------- |
@@ -102,7 +102,7 @@
 | Height    | ✅                         | ❌             | ✅                          |
 | Width set | ✅                         | ❌             | ✅                          |
 
-**Q4. ```<div>``` vs ```<span>```**
+## Q4. div vs span
 | `<div>`                   | `<span>`       |
 | ------------------------- | -------------- |
 | Block element             | Inline element |
@@ -110,7 +110,7 @@
 | Parent ki available width | Content width  |
 | Layout                    | Text styling   |
 
-**Q5. Kya Inline Element ke Andar Block Element Aa Sakta Hai?**
+## Q5. Kya Inline Element ke Andar Block Element Aa Sakta Hai?
 - Generally, nahi.
 
 **Example:**
@@ -122,7 +122,7 @@
 ``</span>``
 - Ye valid structure nahi maana jata.
 
-**Q6. Kya Block Element ke Andar Inline Element Aa Sakta Hai?**
+## Q6. Kya Block Element ke Andar Inline Element Aa Sakta Hai?
 - Ha
 
 ``<div>``

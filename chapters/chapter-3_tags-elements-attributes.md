@@ -1,6 +1,6 @@
-**📘 Chapter 3 – HTML Tags, Elements, Attributes aur Empty Tags**
+# Chapter 3 – HTML Tags, Elements, Attributes aur Empty Tags
 
-**Q1. HTML Tag Kya Hota Hai?**
+## Q1. HTML Tag Kya Hota Hai?
 - Tag browser ko batata hai ki content kis type ka hai.
 
 **Example**
@@ -12,7 +12,7 @@
 - ```<h1>``` = Opening Tag
 - ```</h1>``` = Closing Tag
 
-**Q2. HTML Element Kya Hota Hai?**
+## Q2. HTML Element Kya Hota Hai?
 - **Element = Opening Tag + Content + Closing Tag**
 
 **Example:**
@@ -34,7 +34,7 @@ Tag aur Element me difference?
 | Sirf opening ya closing tag | Opening + Content + Closing |
 | `<p>`                       | `<p>Hello</p>`              |
 
-**Q3. Empty Tag (Void Element) Kya Hota Hai?**
+## Q3. Empty Tag (Void Element) Kya Hota Hai?
 - Aise tags jinke closing tag nahi hote, unhe Empty Tag ya Void Element kehte hain.
 
 **Examples**
@@ -52,7 +52,7 @@ Tag aur Element me difference?
 ```<link>```
 - Ye sab self-closing nature ke hote hain.
 
-**Q4. HTML Attribute Kya Hota Hai?**
+## Q4. HTML Attribute Kya Hota Hai?
 - Attribute kisi HTML element ko additional information provide karta hai.
 
 **Syntax:**

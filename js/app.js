@@ -15,7 +15,9 @@ const contentBox = document.querySelector(".content-box");
 
 const themeBtn = document.getElementById("themeBtn");
 
-console.log(progressBar);
+const tocList = document.getElementById("tocList");
+
+// console.log(progressBar);
 
 let currentChapterIndex = 0;
 
@@ -79,6 +81,8 @@ async function loadChapter() {
         const markdown = await response.text();
 
         content.innerHTML = marked.parse(markdown);
+
+        generateTOC();
 
         // Highlight Code
         document.querySelectorAll("pre code").forEach((block) => {
@@ -217,6 +221,49 @@ function updateNavigation() {
         nextBtn.style.display = "inline-block";
 
     }
+
+}
+
+// =============================
+// Auto Table of Contents (TOC)
+
+// Right side me automatically headings ka list banega.
+
+// 📚 On This Page
+
+// • HTML Structure
+// • DOCTYPE
+// • html Tag
+// • head Tag
+// • body Tag
+// • Summary
+
+// Aur click karne par us heading par scroll ho jayega.
+// =============================
+
+function generateTOC(){
+
+    tocList.innerHTML="";
+
+    const headings=document.querySelectorAll("#content h2,#content h3");
+
+    headings.forEach((heading,index)=>{
+
+        const id="heading-"+index;
+
+        heading.id=id;
+
+        const li=document.createElement("li");
+
+        li.innerHTML=`
+            <a href="#${id}">
+                ${heading.textContent}
+            </a>
+        `;
+
+        tocList.appendChild(li);
+
+    });
 
 }
 

@@ -38,5 +38,10 @@ const chapters = [
         id: 8,
         title: "HTML tables",
         file: "chapter-8_tables.md"
+    },
+    {
+        id: 9,
+        title: "test",
+        file: "chapter-9_test.md"
     }
 ];
