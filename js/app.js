@@ -10,6 +10,11 @@ const nextBtn = document.getElementById("nextBtn");
 
 const searchInput = document.getElementById("searchInput");
 
+const progressBar = document.getElementById("readingProgress");
+const contentBox = document.querySelector(".content-box");
+
+console.log(progressBar);
+
 let currentChapterIndex = 0;
 
 // =============================
@@ -268,6 +273,20 @@ searchInput.addEventListener("keyup", () => {
         }
 
     });
+
+});
+
+contentBox.addEventListener("scroll", () => {
+
+    const scrollTop = contentBox.scrollTop;
+
+    const scrollHeight =
+        contentBox.scrollHeight - contentBox.clientHeight;
+
+    const progress =
+        (scrollTop / scrollHeight) * 100;
+
+    progressBar.style.width = progress + "%";
 
 });
 
