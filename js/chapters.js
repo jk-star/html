@@ -17,12 +17,12 @@ const chapters = [
     {
         id: 4,
         title: "HTML Block Level vs Inline Elements",
-        file: "chapter-4_block-level_inline-attributes.md"
+        file: "chapter-4_block-level_inline-elements.md"
     },
     {
         id: 5,
         title: "HTML Lists",
-        file: "chapter-5_links.md"
+        file: "chapter-5_lists.md"
     },
     {
         id: 6,

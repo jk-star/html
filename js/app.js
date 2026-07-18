@@ -1,47 +1,85 @@
+// =============================
+// Global Variables
+// =============================
+
 const chapterList = document.getElementById("chapter-list");
 const content = document.getElementById("content");
 
-// Sidebar Create
-chapters.forEach((chapter) => {
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 
-    const li = document.createElement("li");
+let currentChapterIndex = 0;
 
-    const link = document.createElement("a");
+// =============================
+// Sidebar Generate
+// =============================
 
-    link.textContent = `Chapter ${chapter.id} - ${chapter.title}`;
+function createSidebar() {
 
-    link.href = "#";
+    chapterList.innerHTML = "";
 
-    link.addEventListener("click", (e) => {
+    chapters.forEach((chapter, index) => {
 
-        e.preventDefault();
+        const li = document.createElement("li");
 
-        loadChapter(chapter);
+        const link = document.createElement("a");
+
+        link.href = "#";
+
+        link.textContent = `Chapter ${chapter.id} - ${chapter.title}`;
+
+        link.dataset.index = index;
+
+        link.addEventListener("click", (e) => {
+
+            e.preventDefault();
+
+            currentChapterIndex = index;
+
+            loadChapter();
+            updateURL();
+
+        });
+
+        li.appendChild(link);
+
+        chapterList.appendChild(li);
 
     });
 
-    li.appendChild(link);
+}
 
-    chapterList.appendChild(li);
+// =============================
+// Load Chapter
+// =============================
 
-});
-
-// Markdown Load
-async function loadChapter(chapter) {
+async function loadChapter() {
 
     try {
 
+        const chapter = chapters[currentChapterIndex];
+
         const response = await fetch(`chapters/${chapter.file}`);
+
+        if (!response.ok) {
+
+            throw new Error("Chapter Not Found");
+
+        }
 
         const markdown = await response.text();
 
-        const html = marked.parse(markdown);
+        content.innerHTML = marked.parse(markdown);
 
-        content.innerHTML = html;
+        setActiveChapter();
 
-    } catch (error) {
+        updateNavigation();
 
-        content.innerHTML = "<h2>Chapter Loading Error</h2>";
+    }
+
+    catch (error) {
+
+        content.innerHTML = `<h2>${error.message}</h2>`;
 
         console.error(error);
 
@@ -49,5 +87,127 @@ async function loadChapter(chapter) {
 
 }
 
-// Default Chapter Load
-loadChapter(chapters[0]);
+
+function updateURL() {
+    const chapter = chapters[currentChapterIndex];
+
+    const url = new URL(window.location);
+
+    url.searchParams.set("chapter", chapter.id);
+
+    window.history.replaceState({}, "", url);
+}
+
+// =============================
+// Active Sidebar
+// =============================
+
+function setActiveChapter() {
+
+    const links = document.querySelectorAll("#chapter-list a");
+
+    links.forEach((link) => {
+
+        link.classList.remove("active");
+
+    });
+
+    links[currentChapterIndex].classList.add("active");
+
+}
+
+// =============================
+// Navigation Buttons
+// =============================
+
+function updateNavigation() {
+
+    // Previous
+
+    if (currentChapterIndex === 0) {
+
+        prevBtn.style.display = "none";
+
+    } else {
+
+        prevBtn.style.display = "inline-block";
+
+    }
+
+    // Next
+
+    if (currentChapterIndex === chapters.length - 1) {
+
+        nextBtn.style.display = "none";
+
+    } else {
+
+        nextBtn.style.display = "inline-block";
+
+    }
+
+}
+
+// =============================
+// Previous Button
+// =============================
+
+prevBtn.addEventListener("click", () => {
+
+    if (currentChapterIndex > 0) {
+
+        currentChapterIndex--;
+
+        loadChapter();
+        updateURL();
+
+    }
+
+});
+
+// =============================
+// Next Button
+// =============================
+
+nextBtn.addEventListener("click", () => {
+
+    if (currentChapterIndex < chapters.length - 1) {
+
+        currentChapterIndex++;
+
+        loadChapter();
+        updateURL();
+
+    }
+
+});
+
+
+
+// =============================
+// Init
+// =============================
+
+function init() {
+
+    const params = new URLSearchParams(window.location.search);
+
+    const chapterId = parseInt(params.get("chapter"));
+
+    if (chapterId) {
+
+        const index = chapters.findIndex(ch => ch.id === chapterId);
+
+        if (index !== -1) {
+            currentChapterIndex = index;
+        }
+
+    }
+
+    createSidebar();
+
+    loadChapter();
+
+}
+
+init();
