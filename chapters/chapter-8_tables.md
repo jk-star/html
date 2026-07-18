@@ -145,7 +145,8 @@
 </tr>
 </table>
 
-## Difference
+**Difference**
+
 | Colspan      | Rowspan   |
 | ------------ | --------- |
 | Column merge | Row merge |

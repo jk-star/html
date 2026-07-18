@@ -103,17 +103,17 @@ Jab browser HTML file open karta hai:
 
 ## Interview Questions
 
-### Q1. HTML ka full form kya hai?
+**Q1. HTML ka full form kya hai?**
 - HyperText Markup Language.
 
-### Q2. HTML kya hai?
+**Q2. HTML kya hai?**
 - HTML ek Markup Language hai jo webpage ka structure banane ke liye use hoti hai.
 
-### Q3. HTML programming language hai?
+**Q3. HTML programming language hai?**
 - Nahi. HTML ek Markup Language hai. Isme programming logic (loops, conditions, functions) nahi hote.
 
-### Q4. HyperText kya hota hai?
+**Q4. HyperText kya hota hai?**
 - HyperText ki help se ek webpage se dusre webpage par links ke through navigate kar sakte hain.
 
-### Q5. Markup kya hota hai?
+**Q5. Markup kya hota hai?**
 - Tags ke through content ko define karna, jaise heading, paragraph, image, etc.

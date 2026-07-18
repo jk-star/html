@@ -93,7 +93,7 @@
 
 ## Interview Question
 
-## Difference Between Block, Inline, Inline-block 
+**Difference Between Block, Inline, Inline-block**
 
 | Feature   | Block                     | Inline        | Inline-block               |
 | --------- | ------------------------- | ------------- | -------------------------- |
@@ -102,7 +102,8 @@
 | Height    | ✅                         | ❌             | ✅                          |
 | Width set | ✅                         | ❌             | ✅                          |
 
-## Q4. div vs span
+
+**Q4. div vs span**
 | `<div>`                   | `<span>`       |
 | ------------------------- | -------------- |
 | Block element             | Inline element |
@@ -110,7 +111,8 @@
 | Parent ki available width | Content width  |
 | Layout                    | Text styling   |
 
-## Q5. Kya Inline Element ke Andar Block Element Aa Sakta Hai?
+
+**Q5. Kya Inline Element ke Andar Block Element Aa Sakta Hai?**
 - Generally, nahi.
 
 **Example:**
@@ -122,7 +124,7 @@
 ``</span>``
 - Ye valid structure nahi maana jata.
 
-## Q6. Kya Block Element ke Andar Inline Element Aa Sakta Hai?
+**Q6. Kya Block Element ke Andar Inline Element Aa Sakta Hai?**
 - Ha
 
 ``<div>``

@@ -25,9 +25,25 @@ const menuIcon = document.querySelector(".menu-icon");
 
 const backToTop = document.getElementById("backToTop");
 
+const breadcrumb = document.getElementById("breadcrumb");
+
 // console.log(progressBar);
 
 let currentChapterIndex = 0;
+
+function updateBreadcrumb() {
+
+    const chapter = chapters[currentChapterIndex];
+
+    breadcrumb.innerHTML = `
+        🏠 Home
+        <span> &gt; </span>
+        HTML Tutorial
+        <span> &gt; </span>
+        <strong>${chapter.title}</strong>
+    `;
+
+}
 
 // =============================
 // Sidebar Generate
@@ -59,6 +75,7 @@ function createSidebar() {
             updateURL();
             saveLastChapter();
             updateActiveTOC();
+            updateBreadcrumb();
 
         });
 
@@ -93,6 +110,16 @@ async function loadChapter() {
         content.innerHTML = marked.parse(markdown);
 
         generateTOC();
+
+        setActiveChapter();
+
+        updateNavigation();
+
+        updateURL();
+
+        saveLastChapter();
+
+        updateBreadcrumb();
 
         // Highlight Code
         document.querySelectorAll("pre code").forEach((block) => {
@@ -251,21 +278,21 @@ function updateNavigation() {
 // Aur click karne par us heading par scroll ho jayega.
 // =============================
 
-function generateTOC(){
+function generateTOC() {
 
-    tocList.innerHTML="";
+    tocList.innerHTML = "";
 
-    const headings=document.querySelectorAll("#content h2,#content h3");
+    const headings = document.querySelectorAll("#content h2,#content h3");
 
-    headings.forEach((heading,index)=>{
+    headings.forEach((heading, index) => {
 
-        const id="heading-"+index;
+        const id = "heading-" + index;
 
-        heading.id=id;
+        heading.id = id;
 
-        const li=document.createElement("li");
+        const li = document.createElement("li");
 
-        li.innerHTML=`
+        li.innerHTML = `
             <a href="#${id}">
                 ${heading.textContent}
             </a>
@@ -300,7 +327,7 @@ function updateActiveTOC() {
 
         link.classList.remove("active");
 
-        if(link.getAttribute("href") === "#" + currentHeading){
+        if (link.getAttribute("href") === "#" + currentHeading) {
 
             link.classList.add("active");
 
@@ -337,6 +364,7 @@ prevBtn.addEventListener("click", () => {
         updateURL();
         saveLastChapter();
         updateActiveTOC();
+        updateBreadcrumb();
 
     }
 
@@ -356,6 +384,7 @@ nextBtn.addEventListener("click", () => {
         updateURL();
         saveLastChapter();
         updateActiveTOC();
+        updateBreadcrumb();
 
     }
 
@@ -388,6 +417,7 @@ function init() {
     loadChapter();
     saveLastChapter();
     updateActiveTOC();
+    updateBreadcrumb();
 
 }
 
@@ -451,31 +481,31 @@ themeBtn.addEventListener("click", () => {
 
 
 
-menuToggle.addEventListener("click",()=>{
+menuToggle.addEventListener("click", () => {
 
     sidebar.classList.toggle("show");
 
     menuToggle.classList.toggle("active");
 
-    if(sidebar.classList.contains("show")){
+    if (sidebar.classList.contains("show")) {
 
-        menuIcon.innerHTML="&#10005;";   // ✕
+        menuIcon.innerHTML = "&#10005;";   // ✕
 
-    }else{
+    } else {
 
-        menuIcon.innerHTML="&#9776;";    // ☰
+        menuIcon.innerHTML = "&#9776;";    // ☰
 
     }
 
 });
 
-if(window.innerWidth<992){
+if (window.innerWidth < 992) {
 
     sidebar.classList.remove("show");
 
     menuToggle.classList.remove("active");
 
-    menuIcon.innerHTML="&#9776;";
+    menuIcon.innerHTML = "&#9776;";
 
 }
 
@@ -493,11 +523,11 @@ contentBox.addEventListener("scroll", () => {
     progressBar.style.width = progress + "%";
 
     // Back To Top
-    if(scrollTop > 300){
+    if (scrollTop > 300) {
 
         backToTop.classList.add("show");
 
-    }else{
+    } else {
 
         backToTop.classList.remove("show");
 
@@ -509,9 +539,9 @@ backToTop.addEventListener("click", () => {
 
     contentBox.scrollTo({
 
-        top:0,
+        top: 0,
 
-        behavior:"smooth"
+        behavior: "smooth"
 
     });
 
@@ -523,5 +553,19 @@ contentBox.addEventListener("scroll", () => {
 
 });
 
+
+const activeLink = document.querySelector(".toc a.active");
+
+if (activeLink) {
+
+    activeLink.scrollIntoView({
+
+        block: "nearest",
+
+        behavior: "smooth"
+
+    });
+
+}
 
 init();

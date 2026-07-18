@@ -117,15 +117,15 @@
 
 ## Interview Question
 
-## Q.1 Logo ke liye kaunsa format best hai?
+**Q.1 Logo ke liye kaunsa format best hai?**
 
 - SVG (agar available ho), warna PNG.
 
-## Q.2 Photo ke liye?
+**Q.2 Photo ke liye?**
 
 - JPEG ya WebP.
 
-## Q9. Lazy Loading
+**Q3. Lazy Loading**
 
 - Modern websites me use hota hai.
 
@@ -140,7 +140,7 @@
 - Kam internet usage
 - Better performance
 
-## Q10. figure aur figcaption
+**Q10. figure aur figcaption**
 - Image ke saath caption dikhane ke liye.
 
 <code><pre>

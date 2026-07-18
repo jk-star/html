@@ -54,7 +54,7 @@
 | External website | Internal page            |
 | `https://...`    | `about.html`             |
 
-## Q4. target Attribute
+**Q1. target Attribute**
 
 - Ye decide karta hai link kahan open hoga.
 - **_self** Default value. Same tab me open hota hai.
@@ -69,27 +69,25 @@ About
 Google
 ``</a>``
 
-## Interview Question
-
-- Difference between _self and _blank?
+**Q2. Difference between _self and _blank?**
     - _self → Same tab
     - _blank → New tab
 
-## Q5. Email Link (mailto:)
+**Q3. Email Link (mailto:)**
 - User ke email app ko open karta hai.
 
 ``<a href="mailto:test@gmail.com">``
 Send Email
 ``</a>``
 
-## Q6. Phone Link (tel:)
+**Q4. Phone Link (tel:)**
 - Mobile me click karte hi dialer open ho jata hai.
 
 ``<a href="tel:+919876543210">``
 Call Now
 ``</a>``
 
-## Q7. Download Attribute
+**Q5. Download Attribute**
 - File download karne ke liye.
 - Click karte hi file download hogi.
 
@@ -97,7 +95,7 @@ Call Now
 Download Resume
 `</a>`
 
-## Q8. Bookmark Link (Same Page Navigation)
+**Q6. Bookmark Link (Same Page Navigation)**
 
 - Ek hi page ke kisi section par jump karna.
 
@@ -111,7 +109,7 @@ Download Resume
 - id="contact" → Destination
 - href="#contact" → Link
 
-## Q9. Image Ko Link Banana
+**Q7. Image Ko Link Banana**
 
 - Image par click karne se page open ho.
 
@@ -121,7 +119,7 @@ Download Resume
 &lt;/a&gt; 
 </pre></code>
 
-## Q10. Empty Link
+**Q8. Empty Link**
 
 - Kabhi-kabhi temporary link banate hain.
 
