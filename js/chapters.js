@@ -41,7 +41,22 @@ const chapters = [
     },
     {
         id: 9,
-        title: "test",
-        file: "chapter-9_test.md"
+        title: "HTML Forms",
+        file: "chapter-9_forms.md"
+    },
+    {
+        id: 10,
+        title: "Semantic HTML",
+        file: "chapter-10_semantic-html.md"
+    },
+    {
+        id: 11,
+        title: "HTML5 Multimedia",
+        file: "chapter-11_multimedia.md"
+    },
+    {
+        id: 12,
+        title: "Meta Tags & SEO",
+        file: "chapter-12_meta-tags.md"
     }
 ];
