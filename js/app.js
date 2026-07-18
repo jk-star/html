@@ -73,6 +73,41 @@ async function loadChapter() {
 
         content.innerHTML = marked.parse(markdown);
 
+        // Highlight Code
+        document.querySelectorAll("pre code").forEach((block) => {
+
+            hljs.highlightElement(block);
+
+        });
+
+        // Copy Button
+
+        document.querySelectorAll("pre").forEach((pre) => {
+
+            const btn = document.createElement("button");
+
+            btn.innerText = "Copy";
+
+            btn.className = "copy-btn";
+
+            btn.onclick = () => {
+
+                navigator.clipboard.writeText(pre.innerText);
+
+                btn.innerText = "Copied";
+
+                setTimeout(() => {
+
+                    btn.innerText = "Copy";
+
+                }, 1500);
+
+            };
+
+            pre.appendChild(btn);
+
+        });
+
         setActiveChapter();
 
         updateNavigation();
