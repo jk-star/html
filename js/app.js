@@ -55,6 +55,7 @@ function createSidebar() {
 
             loadChapter();
             updateURL();
+            saveLastChapter();
 
         });
 
@@ -274,6 +275,19 @@ function generateTOC(){
 }
 
 // =============================
+// Remember Last Read Chapter
+// =============================
+
+function saveLastChapter() {
+
+    localStorage.setItem(
+        "lastChapter",
+        chapters[currentChapterIndex].id
+    );
+
+}
+
+// =============================
 // Previous Button
 // =============================
 
@@ -285,6 +299,7 @@ prevBtn.addEventListener("click", () => {
 
         loadChapter();
         updateURL();
+        saveLastChapter();
 
     }
 
@@ -302,6 +317,7 @@ nextBtn.addEventListener("click", () => {
 
         loadChapter();
         updateURL();
+        saveLastChapter();
 
     }
 
@@ -332,6 +348,7 @@ function init() {
     createSidebar();
 
     loadChapter();
+    saveLastChapter();
 
 }
 
