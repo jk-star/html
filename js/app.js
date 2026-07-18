@@ -23,6 +23,8 @@ const sidebar = document.querySelector(".sidebar");
 
 const menuIcon = document.querySelector(".menu-icon");
 
+const backToTop = document.getElementById("backToTop");
+
 // console.log(progressBar);
 
 let currentChapterIndex = 0;
@@ -56,6 +58,7 @@ function createSidebar() {
             loadChapter();
             updateURL();
             saveLastChapter();
+            updateActiveTOC();
 
         });
 
@@ -274,6 +277,39 @@ function generateTOC(){
 
 }
 
+
+function updateActiveTOC() {
+
+    const headings = document.querySelectorAll("#content h2, #content h3");
+
+    const links = document.querySelectorAll("#tocList a");
+
+    let currentHeading = "";
+
+    headings.forEach((heading) => {
+
+        const rect = heading.getBoundingClientRect();
+
+        if (rect.top <= 120) {
+            currentHeading = heading.id;
+        }
+
+    });
+
+    links.forEach(link => {
+
+        link.classList.remove("active");
+
+        if(link.getAttribute("href") === "#" + currentHeading){
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+}
+
 // =============================
 // Remember Last Read Chapter
 // =============================
@@ -300,6 +336,7 @@ prevBtn.addEventListener("click", () => {
         loadChapter();
         updateURL();
         saveLastChapter();
+        updateActiveTOC();
 
     }
 
@@ -318,6 +355,7 @@ nextBtn.addEventListener("click", () => {
         loadChapter();
         updateURL();
         saveLastChapter();
+        updateActiveTOC();
 
     }
 
@@ -349,6 +387,7 @@ function init() {
 
     loadChapter();
     saveLastChapter();
+    updateActiveTOC();
 
 }
 
@@ -439,6 +478,50 @@ if(window.innerWidth<992){
     menuIcon.innerHTML="&#9776;";
 
 }
+
+contentBox.addEventListener("scroll", () => {
+
+    // Progress Bar
+    const scrollTop = contentBox.scrollTop;
+
+    const scrollHeight =
+        contentBox.scrollHeight - contentBox.clientHeight;
+
+    const progress =
+        (scrollTop / scrollHeight) * 100;
+
+    progressBar.style.width = progress + "%";
+
+    // Back To Top
+    if(scrollTop > 300){
+
+        backToTop.classList.add("show");
+
+    }else{
+
+        backToTop.classList.remove("show");
+
+    }
+
+});
+
+backToTop.addEventListener("click", () => {
+
+    contentBox.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+});
+
+contentBox.addEventListener("scroll", () => {
+
+    updateActiveTOC();
+
+});
 
 
 init();
