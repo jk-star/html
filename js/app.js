@@ -25,7 +25,11 @@ const menuIcon = document.querySelector(".menu-icon");
 
 const backToTop = document.getElementById("backToTop");
 
+const activeLink = document.querySelector(".toc a.active");
+
 const breadcrumb = document.getElementById("breadcrumb");
+
+const printBtn=document.getElementById("printBtn");
 
 // console.log(progressBar);
 
@@ -80,7 +84,6 @@ function createSidebar() {
         });
 
         li.appendChild(link);
-
         chapterList.appendChild(li);
 
     });
@@ -135,9 +138,7 @@ async function loadChapter() {
             const btn = document.createElement("button");
 
             btn.innerText = "Copy";
-
             btn.className = "copy-btn";
-
             btn.onclick = () => {
 
                 navigator.clipboard.writeText(pre.innerText);
@@ -157,7 +158,6 @@ async function loadChapter() {
         });
 
         setActiveChapter();
-
         updateNavigation();
 
     }
@@ -165,7 +165,6 @@ async function loadChapter() {
     catch (error) {
 
         content.innerHTML = `<h2>${error.message}</h2>`;
-
         console.error(error);
 
     }
@@ -185,11 +184,8 @@ async function loadChapter() {
 
 function updateURL() {
     const chapter = chapters[currentChapterIndex];
-
     const url = new URL(window.location);
-
     url.searchParams.set("chapter", chapter.id);
-
     window.history.replaceState({}, "", url);
 }
 
@@ -204,7 +200,6 @@ function loadTheme() {
     if (savedTheme === "dark") {
 
         document.body.classList.add("dark-mode");
-
         themeBtn.innerHTML = "☀️ Light Mode";
 
     }
@@ -220,9 +215,7 @@ function setActiveChapter() {
     const links = document.querySelectorAll("#chapter-list a");
 
     links.forEach((link) => {
-
         link.classList.remove("active");
-
     });
 
     links[currentChapterIndex].classList.add("active");
@@ -238,11 +231,9 @@ function updateNavigation() {
     // Previous
 
     if (currentChapterIndex === 0) {
-
         prevBtn.style.display = "none";
 
     } else {
-
         prevBtn.style.display = "inline-block";
 
     }
@@ -250,11 +241,9 @@ function updateNavigation() {
     // Next
 
     if (currentChapterIndex === chapters.length - 1) {
-
         nextBtn.style.display = "none";
 
     } else {
-
         nextBtn.style.display = "inline-block";
 
     }
@@ -308,9 +297,7 @@ function generateTOC() {
 function updateActiveTOC() {
 
     const headings = document.querySelectorAll("#content h2, #content h3");
-
     const links = document.querySelectorAll("#tocList a");
-
     let currentHeading = "";
 
     headings.forEach((heading) => {
@@ -328,9 +315,7 @@ function updateActiveTOC() {
         link.classList.remove("active");
 
         if (link.getAttribute("href") === "#" + currentHeading) {
-
             link.classList.add("active");
-
         }
 
     });
@@ -413,7 +398,6 @@ function init() {
     }
 
     createSidebar();
-
     loadChapter();
     saveLastChapter();
     updateActiveTOC();
@@ -424,21 +408,16 @@ function init() {
 searchInput.addEventListener("keyup", () => {
 
     const keyword = searchInput.value.toLowerCase();
-
     const links = document.querySelectorAll("#chapter-list a");
 
     links.forEach((link) => {
 
         if (link.textContent.toLowerCase().includes(keyword)) {
-
             link.parentElement.style.display = "";
-
         }
 
         else {
-
             link.parentElement.style.display = "none";
-
         }
 
     });
@@ -466,13 +445,11 @@ themeBtn.addEventListener("click", () => {
     if (document.body.classList.contains("dark-mode")) {
 
         localStorage.setItem("theme", "dark");
-
         themeBtn.innerHTML = "☀️ Light Mode";
 
     } else {
 
         localStorage.setItem("theme", "light");
-
         themeBtn.innerHTML = "🌙 Dark Mode";
 
     }
@@ -484,15 +461,12 @@ themeBtn.addEventListener("click", () => {
 menuToggle.addEventListener("click", () => {
 
     sidebar.classList.toggle("show");
-
     menuToggle.classList.toggle("active");
 
     if (sidebar.classList.contains("show")) {
-
         menuIcon.innerHTML = "&#10005;";   // ✕
 
     } else {
-
         menuIcon.innerHTML = "&#9776;";    // ☰
 
     }
@@ -502,9 +476,7 @@ menuToggle.addEventListener("click", () => {
 if (window.innerWidth < 992) {
 
     sidebar.classList.remove("show");
-
     menuToggle.classList.remove("active");
-
     menuIcon.innerHTML = "&#9776;";
 
 }
@@ -524,48 +496,114 @@ contentBox.addEventListener("scroll", () => {
 
     // Back To Top
     if (scrollTop > 300) {
-
         backToTop.classList.add("show");
-
     } else {
-
         backToTop.classList.remove("show");
-
     }
 
 });
 
 backToTop.addEventListener("click", () => {
-
     contentBox.scrollTo({
-
         top: 0,
-
         behavior: "smooth"
-
     });
-
 });
 
 contentBox.addEventListener("scroll", () => {
-
     updateActiveTOC();
-
 });
 
 
-const activeLink = document.querySelector(".toc a.active");
-
 if (activeLink) {
-
     activeLink.scrollIntoView({
-
         block: "nearest",
-
         behavior: "smooth"
-
     });
 
 }
+
+printBtn.addEventListener("click", () => {
+
+    const content = document.getElementById("content").innerHTML;
+
+    const printWindow = window.open("", "_blank");
+
+    printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+
+            <title>Print</title>
+
+            <link rel="stylesheet" href="css/style.css">
+
+            <style>
+
+                body{
+                    padding:40px;
+                    font-family:Arial,sans-serif;
+                    line-height:1.7;
+                }
+
+                img{
+                    max-width:100%;
+                    height:auto;
+                }
+
+                pre{
+                    white-space:pre-wrap;
+                    word-break:break-word;
+                    border:1px solid #ddd;
+                    padding:15px;
+                    border-radius:8px;
+                }
+
+                table{
+                    width:100%;
+                    border-collapse:collapse;
+                }
+
+                table,
+                th,
+                td{
+                    border:1px solid #999;
+                }
+
+                th,
+                td{
+                    padding:10px;
+                }
+
+            </style>
+
+        </head>
+
+        <body>
+
+            ${content}
+
+        </body>
+
+        </html>
+    `);
+
+    printWindow.document.close();
+
+    printWindow.onload = function(){
+
+        printWindow.focus();
+
+        printWindow.print();
+
+    };
+
+    printWindow.onafterprint = function(){
+
+        printWindow.close();
+
+    };
+
+});
 
 init();
