@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>chapter-2_document-structure.md</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+		/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+		/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+		body {
+			font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+			font-size: var(--vscode-markdown-font-size, 14px);
+			padding: 0 26px;
+			line-height: var(--vscode-markdown-line-height, 22px);
+			word-wrap: break-word;
+		}
+
+		#code-csp-warning {
+			position: fixed;
+			top: 0;
+			right: 0;
+			color: white;
+			margin: 16px;
+			text-align: center;
+			font-size: 12px;
+			font-family: sans-serif;
+			background-color: #444444;
+			cursor: pointer;
+			padding: 6px;
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+		}
+
+		#code-csp-warning:hover {
+			text-decoration: none;
+			background-color: #007acc;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+		}
+
+		body.scrollBeyondLastLine {
+			margin-bottom: calc(100vh - 22px);
+		}
+
+		body.showEditorSelection .code-line {
+			position: relative;
+		}
+
+		body.showEditorSelection .code-active-line:before,
+		body.showEditorSelection .code-line:hover:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			left: -12px;
+			height: 100%;
+		}
+
+		body.showEditorSelection li.code-active-line:before,
+		body.showEditorSelection li.code-line:hover:before {
+			left: -30px;
+		}
+
+		.vscode-light.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.15);
+		}
+
+		.vscode-light.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(0, 0, 0, 0.40);
+		}
+
+		.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-dark.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.4);
+		}
+
+		.vscode-dark.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 255, 255, 0.60);
+		}
+
+		.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-active-line:before {
+			border-left: 3px solid rgba(255, 160, 0, 0.7);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+			border-left: 3px solid rgba(255, 160, 0, 1);
+		}
+
+		.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+			border-left: none;
+		}
+
+		img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		a:focus,
+		input:focus,
+		select:focus,
+		textarea:focus {
+			outline: 1px solid -webkit-focus-ring-color;
+			outline-offset: -1px;
+		}
+
+		hr {
+			border: 0;
+			height: 2px;
+			border-bottom: 2px solid;
+		}
+
+		h1 {
+			padding-bottom: 0.3em;
+			line-height: 1.2;
+			border-bottom-width: 1px;
+			border-bottom-style: solid;
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-weight: normal;
+		}
+
+		table {
+			border-collapse: collapse;
+		}
+
+		table>thead>tr>th {
+			text-align: left;
+			border-bottom: 1px solid;
+		}
+
+		table>thead>tr>th,
+		table>thead>tr>td,
+		table>tbody>tr>th,
+		table>tbody>tr>td {
+			padding: 5px 10px;
+		}
+
+		table>tbody>tr+tr>td {
+			border-top: 1px solid;
+		}
+
+		blockquote {
+			margin: 0 7px 0 5px;
+			padding: 0 16px 0 10px;
+			border-left-width: 5px;
+			border-left-style: solid;
+		}
+
+		code {
+			font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+			font-size: 1em;
+			line-height: 1.357em;
+		}
+
+		body.wordWrap pre {
+			white-space: pre-wrap;
+		}
+
+		pre:not(.hljs),
+		pre.hljs code>div {
+			padding: 16px;
+			border-radius: 3px;
+			overflow: auto;
+		}
+
+		pre code {
+			color: var(--vscode-editor-foreground);
+			tab-size: 4;
+		}
+
+		/** Theming */
+
+		.vscode-light pre {
+			background-color: rgba(220, 220, 220, 0.4);
+		}
+
+		.vscode-dark pre {
+			background-color: rgba(10, 10, 10, 0.4);
+		}
+
+		.vscode-high-contrast pre {
+			background-color: rgb(0, 0, 0);
+		}
+
+		.vscode-high-contrast h1 {
+			border-color: rgb(0, 0, 0);
+		}
+
+		.vscode-light table>thead>tr>th {
+			border-color: rgba(0, 0, 0, 0.69);
+		}
+
+		.vscode-dark table>thead>tr>th {
+			border-color: rgba(255, 255, 255, 0.69);
+		}
+
+		.vscode-light h1,
+		.vscode-light hr,
+		.vscode-light table>tbody>tr+tr>td {
+			border-color: rgba(0, 0, 0, 0.18);
+		}
+
+		.vscode-dark h1,
+		.vscode-dark hr,
+		.vscode-dark table>tbody>tr+tr>td {
+			border-color: rgba(255, 255, 255, 0.18);
+		}
+	</style>
+
+	<style>
+		/* Tomorrow Theme */
+		/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+		/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+		/* Tomorrow Comment */
+		.hljs-comment,
+		.hljs-quote {
+			color: #8e908c;
+		}
+
+		/* Tomorrow Red */
+		.hljs-variable,
+		.hljs-template-variable,
+		.hljs-tag,
+		.hljs-name,
+		.hljs-selector-id,
+		.hljs-selector-class,
+		.hljs-regexp,
+		.hljs-deletion {
+			color: #c82829;
+		}
+
+		/* Tomorrow Orange */
+		.hljs-number,
+		.hljs-built_in,
+		.hljs-builtin-name,
+		.hljs-literal,
+		.hljs-type,
+		.hljs-params,
+		.hljs-meta,
+		.hljs-link {
+			color: #f5871f;
+		}
+
+		/* Tomorrow Yellow */
+		.hljs-attribute {
+			color: #eab700;
+		}
+
+		/* Tomorrow Green */
+		.hljs-string,
+		.hljs-symbol,
+		.hljs-bullet,
+		.hljs-addition {
+			color: #718c00;
+		}
+
+		/* Tomorrow Blue */
+		.hljs-title,
+		.hljs-section {
+			color: #4271ae;
+		}
+
+		/* Tomorrow Purple */
+		.hljs-keyword,
+		.hljs-selector-tag {
+			color: #8959a8;
+		}
+
+		.hljs {
+			display: block;
+			overflow-x: auto;
+			color: #4d4d4c;
+			padding: 0.5em;
+		}
+
+		.hljs-emphasis {
+			font-style: italic;
+		}
+
+		.hljs-strong {
+			font-weight: bold;
+		}
+	</style>
+
+	<style>
+		/*
+ * Markdown PDF CSS
+ */
+
+		body {
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+			padding: 0 12px;
+		}
+
+		pre {
+			background-color: #f8f8f8;
+			border: 1px solid #cccccc;
+			border-radius: 3px;
+			overflow-x: auto;
+			white-space: pre-wrap;
+			overflow-wrap: break-word;
+		}
+
+		pre:not(.hljs) {
+			padding: 23px;
+			line-height: 19px;
+		}
+
+		blockquote {
+			background: rgba(127, 127, 127, 0.1);
+			border-color: rgba(0, 122, 204, 0.5);
+		}
+
+		.emoji {
+			height: 1.4em;
+		}
+
+		code {
+			font-size: 14px;
+			line-height: 19px;
+		}
+
+		/* for inline code */
+		:not(pre):not(.hljs)>code {
+			color: #C9AE75;
+			/* Change the old color so it seems less like an error */
+			font-size: inherit;
+		}
+
+		/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+		.page {
+			page-break-after: always;
+		}
+	</style>
+
+	<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+
+<body>
+	<script>
+		mermaid.initialize({
+			startOnLoad: true,
+			theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+				? 'dark'
+				: 'default'
+		});
+	</script>
+	<p><strong>📘 Chapter 2: HTML Document Structure</strong></p>
+	<p><strong>Question 1: HTML Document Structure Kya Hota Hai?</strong></p>
+	<ul>
+		<li>
+			<p>Jab bhi hum HTML file banate hain, uska ek standard structure hota hai.
+				<code><pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;My Website&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Welcome&lt;/h1&gt;
+&lt;p&gt;This is my first HTML page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre></code>
+			</p>
+		</li>
+		<li>
+			<p>Har HTML page lagbhag isi structure ko follow karta hai.</p>
+		</li>
+	</ul>
+	<p><strong>1. &lt;!DOCTYPE html&gt; Kya Hai?</strong></p>
+	<ul>
+		<li>&lt;!DOCTYPE html&gt; browser ko batata hai ki ye document HTML5 me likha gaya hai.</li>
+		<li>Ye browser ko Standards Mode me page render karne ke liye instruct karta hai.</li>
+	</ul>
+	<p><strong>Agar Remove Kar Dein To?</strong></p>
+	<ul>
+		<li>Browser Quirks Mode me ja sakta hai.</li>
+	</ul>
+	<p><strong>Result:</strong></p>
+	<ul>
+		<li>CSS alag behave kar sakti hai.</li>
+		<li>Layout toot sakta hai.</li>
+		<li>Different browsers me different output aa sakta hai.</li>
+	</ul>
+	<p>Isliye hamesha first line me likhte hain.</p>
+	<pre class="hljs"><code><div><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+</div></code></pre>
+	<p><strong>2. <code>&lt;html&gt;</code> Tag</strong></p>
+	<ul>
+		<li>
+			<p>Ye pure HTML document ka root element hota hai.</p>
+		</li>
+		<li>
+			<p>Saare HTML elements isi ke andar hote hain.</p>
+		</li>
+	</ul>
+	<p><strong>Example:</strong></p>
+	<pre class="hljs"><code><div>&lt;html&gt;
+
+&lt;head&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</div></code></pre>
+	<p><strong>Interview Question</strong></p>
+	<p><strong>Q.1: HTML page ka root element kaunsa hota hai?</strong></p>
+	<p><code>&lt;html&gt;</code></p>
+	<p><strong>3. <code>&lt;head&gt;</code> Tag</strong></p>
+	<ul>
+		<li>
+			<p>Ye webpage ki background information rakhta hai.</p>
+		</li>
+		<li>
+			<p>Ye information browser aur search engine ke liye hoti hai.</p>
+		</li>
+		<li>
+			<p>User ko directly screen par nahi dikhti.</p>
+		</li>
+	</ul>
+	<p><strong>Interview Question</strong></p>
+	<p><strong>Q: Kya <code>&lt;head&gt;</code> ka content webpage par visible hota hai?</strong></p>
+	<ul>
+		<li>Nahi. Sirf <code>&lt;title&gt;</code> browser tab me dikhta hai.</li>
+		<li>Baaki tags directly page par visible nahi hote.</li>
+	</ul>
+	<p><strong>4. <code>&lt;title&gt;</code> Tag</strong></p>
+	<ul>
+		<li>Browser tab me jo naam dikhta hai, wo <code>&lt;title&gt;</code> se aata hai.</li>
+	</ul>
+	<p><strong>Example:</strong></p>
+	<p><code>&lt;title&gt;Amazon India&lt;/title&gt;</code></p>
+	<p><em>SEO</em></p>
+	<ul>
+		<li>
+			<p><code>&lt;title&gt;</code> SEO ke liye bhi bahut important hai.</p>
+		</li>
+		<li>
+			<p>Google search results me bhi title dikhai deta hai.</p>
+		</li>
+	</ul>
+	<p><strong>5. <code>&lt;meta&gt;</code> Tag</strong></p>
+	<ul>
+		<li>Meta tag webpage ke baare me extra information deta hai.</li>
+	</ul>
+	<p><strong>Example:</strong>
+		<code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code>
+	</p>
+	<p><strong>Meaning:</strong></p>
+	<ul>
+		<li>
+			<p>Browser ko batata hai ki page UTF-8 character encoding use kar raha hai.</p>
+		</li>
+		<li>
+			<p>Isse Hindi, English aur special characters sahi dikhte hain.</p>
+		</li>
+	</ul>
+	<p><strong>Viewport Meta</strong></p>
+	<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code></p>
+	<ul>
+		<li>Ye mobile responsive website banane ke liye important hai.</li>
+	</ul>
+	<p><strong>Description Meta</strong></p>
+	<p><code>&lt;meta name=&quot;description&quot; content=&quot;Best Online Shopping Website&quot;&gt;</code></p>
+	<ul>
+		<li>SEO me help karta hai.</li>
+	</ul>
+	<p><strong>6. <code>&lt;link&gt;</code> Tag</strong></p>
+	<ul>
+		<li>External CSS file ko connect karne ke liye.</li>
+	</ul>
+	<p><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</code></p>
+	<p><strong>7. <code>&lt;style&gt;</code> Tag</strong></p>
+	<ul>
+		<li>Internal CSS likhne ke liye.</li>
+	</ul>
+	<p><code><pre>
+&lt;style&gt;
+h1 { color:red; }
+&lt;/style&gt;
+</pre></code></p>
+	<p><strong>8. <code>&lt;script&gt;</code> Tag</strong></p>
+	<ul>
+		<li>JavaScript add karne ke liye.</li>
+	</ul>
+	<p><code><pre>
+&lt;script&gt;
+alert(&quot;Hello&quot;);
+&lt;/script&gt;
+</pre></code></p>
+	<ul>
+		<li>Ya external JS file:</li>
+	</ul>
+	<p><code><pre>&lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;</pre></code></p>
+	<p><strong>9. <code>&lt;body&gt;</code> Tag</strong></p>
+	<ul>
+		<li>Jo bhi user browser me dekhta hai, wo sab <code>&lt;body&gt;</code> ke andar hota hai.</li>
+	</ul>
+	<p><strong>Example:</strong>
+		<cdoe>
+			<pre>&lt;body&gt;
+&lt;h1&gt;Welcome&lt;/h1&gt;
+&lt;p&gt;Hello World&lt;/p&gt;
+&lt;img&gt;
+&lt;button&gt;
+&lt;/form&gt;
+&lt;/form&gt;</pre></code>
+	</p>
+	<p><strong>Browser HTML Ko Kaise Load Karta Hai?</strong></p>
+	<p><strong>Simple flow:</strong></p>
+	<ul>
+		<li>Browser HTML file ko read karta hai.</li>
+		<li>HTML tags ko samajhta (parse) hai.</li>
+		<li>DOM (Document Object Model) banata hai.</li>
+		<li>CSS load karta hai.</li>
+		<li>JavaScript execute karta hai.</li>
+		<li>Final webpage screen par render (display) karta hai.</li>
+	</ul>
+	<p><strong>Complete Example</strong>
+		<code><pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt; My Website &lt;/title&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre></code>
+	</p>
+	<p><strong>Quirks Mode Kya Hota Hai?</strong></p>
+	<p><strong>Simple Definition:</strong></p>
+	<ul>
+		<li>Quirks Mode browser ka ek compatibility mode hai, jisme browser purane (old) HTML/CSS rules follow karta hai
+			taaki bahut purani websites bhi sahi chal sakein.</li>
+	</ul>
+
+</body>
+
+</html>
